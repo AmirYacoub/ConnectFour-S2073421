@@ -216,13 +216,31 @@ public final class Model
 		return checkHorizontal(move, player) || checkVertical(move, player) || checkDiagonal(move, player);
 	}
 
+	private int y;
+	public void removeMove(int move, char player)
+	{
+		y = 0;
+		while (board[x][move] != player && x<nrRows)
+		{
+			x++;
+		}
+		board[x][move] = ' ';
+	}
+
 	public int checkForWinningMove(char player)
 	{
 		for (int i = 0; i < nrCols; i++)
 		{
+			makeMove(i,player);
 			if(checkWin(i,player))
+			{
+				removeMove(i,player);
 				return i+1;
+			}
+			else
+				removeMove(i,player);
 		}
+
 		return -1;
 	}
 

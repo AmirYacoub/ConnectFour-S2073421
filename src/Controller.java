@@ -220,10 +220,10 @@ public final class Controller
         // Against Human
         else
         {
+            model.clearBoard();
+            view.displayNewGameMessage();
             while (!model.isBoardFull() && !winStatus)
             {
-                view.displayNewGameMessage();
-                model.clearBoard();
                 humanPlay('R');
                 if (winStatus)
                     break;
