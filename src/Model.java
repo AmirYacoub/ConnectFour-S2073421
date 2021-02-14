@@ -93,16 +93,9 @@ public final class Model
 	}
 
 
-	public boolean isMoveValid(int move)
+	public boolean isMoveInvalid(int move)
 	{
-		if (move > nrCols || move < 0 || isColumnFull(move))
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+		return move > nrCols || move < 0 || isColumnFull(move);
 	}
 
 	//Changing x, going up the rows looking for the first row with 'E'

@@ -24,7 +24,7 @@ public final class Controller
         playerMove = view.askForMove();
         if (playerMove != 0)
         {
-            while (!model.isMoveValid(playerMove - 1))
+            while (model.isMoveInvalid(playerMove - 1))
             {
                 System.out.print("Invalid move, please pick a new column: ");
                 playerMove = InputUtil.readIntFromUser();
@@ -56,7 +56,7 @@ public final class Controller
     {
         playerMove = (int) (1 + Math.random() * model.getNrCols());
 
-        while (!model.isMoveValid(playerMove - 1))
+        while (model.isMoveInvalid(playerMove - 1))
         {
             playerMove = (int) (1 + Math.random() * model.getNrCols());
         }
