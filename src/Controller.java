@@ -159,11 +159,10 @@ public final class Controller
 
         // Against Bot
 
-        if (against.equals("Bot") || against.equals("bot"))
+        if (against.equalsIgnoreCase("Bot"))
         {
             String diff = view.askForDiff();
-            while (!(diff.equals("easy") || diff.equals("Easy") || diff.equals("Medium") || diff.equals("medium")
-                    || diff.equals("Hard") || diff.equals("hard")))
+            while (!(diff.equalsIgnoreCase("easy") || diff.equalsIgnoreCase("Medium") || diff.equalsIgnoreCase("Hard")))
             {
                 System.out.println("Invalid answer, please pick again. ");
                 diff = InputUtil.readStringFromUser();
@@ -171,7 +170,7 @@ public final class Controller
 
             //Easy Difficulty Game
 
-            if (diff.equals("easy") || diff.equals("Easy"))
+            if (diff.equalsIgnoreCase("easy"))
             {
                 model.clearBoard();
                 view.displayNewGameMessage();
@@ -187,7 +186,7 @@ public final class Controller
             }
 
             //Medium Difficulty Game
-            else if (diff.equals("medium") || diff.equals("Medium"))
+            else if (diff.equalsIgnoreCase("medium"))
             {
                 view.displayNewGameMessage();
                 model.clearBoard();
