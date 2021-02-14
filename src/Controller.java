@@ -146,8 +146,7 @@ public final class Controller
         String against = view.askForPlay();
         while (!(against.equals("Bot") || against.equals("PvP") || against.equals("bot") || against.equals("pvp")))
         {
-            System.out.println("Invalid answer, please pick again. ");
-            against = InputUtil.readStringFromUser();
+           against = view.invalidInput();
         }
 
         model.setNrRows(rows);
@@ -164,8 +163,7 @@ public final class Controller
             String diff = view.askForDiff();
             while (!(diff.equalsIgnoreCase("easy") || diff.equalsIgnoreCase("Medium") || diff.equalsIgnoreCase("Hard")))
             {
-                System.out.println("Invalid answer, please pick again. ");
-                diff = InputUtil.readStringFromUser();
+                diff = view.invalidInput();
             }
 
             //Easy Difficulty Game

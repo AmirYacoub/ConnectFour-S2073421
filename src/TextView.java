@@ -22,6 +22,12 @@ public final class TextView
 			System.out.println("Blue player's turn");
 	}
 
+	public final String invalidInput()
+	{
+		System.out.println("Invalid answer, please try again");
+		return InputUtil.readStringFromUser();
+	}
+
 
 	public final String askForPlay()
 	{
