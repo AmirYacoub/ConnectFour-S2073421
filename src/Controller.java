@@ -161,7 +161,8 @@ public final class Controller
         if (against.equalsIgnoreCase("Bot"))
         {
             String diff = view.askForDiff();
-            while (!(diff.equalsIgnoreCase("easy") || diff.equalsIgnoreCase("Medium") || diff.equalsIgnoreCase("Hard")))
+            while (!(diff.equalsIgnoreCase("easy") || diff.equalsIgnoreCase("Medium")
+                    || diff.equalsIgnoreCase("Hard")))
             {
                 diff = view.invalidInput();
             }
