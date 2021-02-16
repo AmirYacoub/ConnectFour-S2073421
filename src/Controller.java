@@ -35,17 +35,23 @@ public final class Controller
                 view.displayBoard(model);
                 winStatus = true;
                 if (player == 'R')
+                {
                     System.out.println("Red Player won!");
+                }
                 else
+                {
                     System.out.println("Blue Player won!");
+                }
             }
-        } else
+        }
+        else
         {
             winStatus = true;
             if (player == 'R')
             {
                 System.out.print("Blue Player won!");
-            } else
+            }
+            else
             {
                 System.out.println("Red Player won!");
             }
@@ -96,7 +102,7 @@ public final class Controller
             {
                 view.displayBoard(model);
                 System.out.println("Blue Player won!");
-                winStatus=true;
+                winStatus = true;
             }
         }
         else
@@ -113,6 +119,7 @@ public final class Controller
             }
         }
     }
+
     public void endGame()
     {
         if (model.isBoardFull())
@@ -124,10 +131,13 @@ public final class Controller
         if (ans == 'Y' || ans == 'y')
         {
             model.clearBoard();
-            winStatus=false;
+            winStatus = false;
             startSession();
-        } else
+        }
+        else
+        {
             System.out.println("Thank you for playing");
+        }
 
     }
 
@@ -146,14 +156,13 @@ public final class Controller
         String against = view.askForPlay();
         while (!(against.equals("Bot") || against.equals("PvP") || against.equals("bot") || against.equals("pvp")))
         {
-           against = view.invalidInput();
+            against = view.invalidInput();
         }
 
         model.setNrRows(rows);
         model.setNrCols(cols);
         model.setBoard(rows, cols);
         model.setConnectX(connectX);
-
 
 
         // Against Bot
@@ -178,7 +187,9 @@ public final class Controller
                     humanPlay('R');
                     //without this, if player R gets a win, player B still gets to play again before the loop ends.
                     if (winStatus)
+                    {
                         break;
+                    }
                     easyBot();
                 }
                 endGame();
@@ -193,7 +204,9 @@ public final class Controller
                 {
                     humanPlay('R');
                     if (winStatus)
+                    {
                         break;
+                    }
                     mediumBot();
                 }
                 endGame();
@@ -204,11 +217,13 @@ public final class Controller
             {
                 model.clearBoard();
                 view.displayNewGameMessage();
-                while (!model.isBoardFull()&&!winStatus)
+                while (!model.isBoardFull() && !winStatus)
                 {
                     humanPlay('R');
                     if (winStatus)
+                    {
                         break;
+                    }
                     hardBot();
                 }
                 endGame();
@@ -224,7 +239,9 @@ public final class Controller
             {
                 humanPlay('R');
                 if (winStatus)
+                {
                     break;
+                }
                 humanPlay('B');
             }
             endGame();
